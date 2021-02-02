@@ -28,6 +28,8 @@ _Key-Pair Creation_                                  :point_right:  | ***![Key-P
 _Compute Security Group_                             :point_right:  | ***![EC2 Security Group](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/sg.tf)***
 _ELB Security Group_                                 :point_right:  | ***![ELB SG](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/elbsg.tf)***
 _Auto-Scaling, LaunchConfig, ELB, ASG policy and Cloudwatch Alarm Creation_ :point_right: | ***![Main file](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/main.tf)***
+_Variable file_                                      :point_right:  | ***![Variables](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/variables.tf)***
+_Dynamic Values for Variables_                       :point_right:  | ***![Terraform.tfvars](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/terraform.tfvars)***
 
 
 ## _Steps to Perform:-_
