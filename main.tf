@@ -35,7 +35,7 @@ resource "aws_launch_configuration" "Lconfig" {
   }
   user_data = <<-EOF
             #!/bin/bash
-            sudo yum install httpd -y
+            sudo yum install httpd wget -y 
             sudo echo Hello from $HOSTNAME !!! >/var/www/html/index.html
             sudo systemctl start httpd
             mkfs.xfs /dev/xvdc && mount /dev/xvdc /mnt/
