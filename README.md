@@ -85,5 +85,5 @@ _Dynamic Values for Variables_                       :point_right:  | ***![Terra
   ```
  * ***_ELB result_***
    <p align="centre">
-     <img width="950" height="70" src="https://github.com/samblake30/Terraform_ASG_AWS/blob/master/images/elb_result.PNG">  
+     <img width="950" height="60" src="https://github.com/samblake30/Terraform_ASG_AWS/blob/master/images/elb_result.PNG">  
    </p>
