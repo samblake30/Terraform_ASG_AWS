@@ -4,15 +4,41 @@
  * _VPC creation with Public and Private Subnet_.
  * _Public Subnet has Bastion Server and ELB_.
  * _Private Subnet has all the Backend Instances working in Auto-Scaling Group_.
- * _ASG uses latest AMI with secondary volume ![sdc](https://img.shields.io/badge/%2Fdev%2Fsdc-----%3E%20%2Fvar%2Flog-red) and Apache webServer_.
- * _
+ * _ASG uses latest AMI with secondary volume ![sdc](https://img.shields.io/badge/%2Fdev%2Fsdc-----%20%3E%20%2Fvar%2Flog-blue) and Apache webServer_.
+ * _Application health Check from ELB_
+ * _Cloudwatch Alarm mechanism to trigger UP scaling and down scaling ASG policy_.
+ * _Auto-Scaling Group to add and remove nodes based on CPUUtilization_.
 
 
 ## _Description:-_
- *  _Centos 7 Machine_
- * _mdadm package installed_
- * _Two Data Volumes attached  to machine for performing the RAID_
+ * _Here we are going to provision our VPC(Public and Private Subnet), Internet Gateway & NAT gateway, weberver, Autoscaling, LaunchConfiguration and  ELB(Classic LoadBalancer) using the Terraform IAC. After this we would be creating Autoscaling Policies to scale up and down our backend instances based on Load metrices from ***![AWS](https://img.shields.io/badge/-AWS%2FEC2-orange) Namespace*** with cloudwatch alarm metrices. Below are contents with file details_.
  
+ ### _Terraform Files:-_
+
+Created Resources      |  Terraform files
+-----------      | --------------------
+_Terraform Settings Block_                           :point_right:  | ***![Terraform Block](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/terraform_block.tf)***
+_VPC_                                                :point_right:  | ***![VPC](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/vpc.tf)***
+_Public and Private Subnet_                          :point_right:  | ***![Pub_Pri_Subnet](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/pub_pri_subnet.tf)***
+_Internet and NAT gateway_                           :point_right:  | ***![IG_NAT_Gateway](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/gateway_ig_nat.tf)***
+_Route Table Creation for Public and Private Subnet_ :point_right:  | ***![Route Table](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/routerule.tf)***
+_Route Rules Creation_                               :point_right:  | ***![Route Rules for RT](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/routerule.tf)***
+_Route Table Association w.r.t Subnets_              :point_right:  | ***![RT Association](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/rtassociation.tf)***
+_Key-Pair Creation_                                  :point_right:  | ***![Key-Pair](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/keypair.tf)***
+_Compute Security Group_                             :point_right:  | ***![EC2 Security Group](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/sg.tf)***
+_ELB Security Group_                                 :point_right:  | ***![ELB SG](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/elbsg.tf)***
+_Auto-Scaling, LaunchConfig, ELB, ASG policy and Cloudwatch Alarm Creation_ :point_right: | ***![Main file](https://github.com/samblake30/Terraform_ASG_AWS/blob/master/main.tf)***
+
+
+## _Steps to Perform:-_
+* _Here I am going to use Windows Machine so I have already set my ```AWS_ACCESS_KEY_ID```, ```AWS_SECRET_ACCESS_KEY```  and ```AWS_DEFAULT_REGION``` as Environment Variables in my machine. Incase you are using Linux below commands can be fired to set your env variables or in your ```/etc/profile.d``` or ```.bashrc``` file_.
+   ```bash
+   export AWS_ACCESS_KEY_ID = <YOUR ACCESS KEY>
+   export AWS_SECRET_ACCESS_KEY = <YOUR SECRET KEY>
+   export AWS_DEFAULT_REGION = <YOUR REGION>
+   ```
+***_NOTE_***: _I have still created a variable for region choices_
+   
 ## _Steps to perform:-_
  * _First check if the attached disks are available_
 <p align="centre">
@@ -27,6 +53,7 @@ Device Name      |  Partition Table Info
 -----------      | --------------------
 :point_right: _/dev/nvme1n1_  | ***![nvme1n1.txt](https://github.com/samblake30/Linux/blob/main/RAID%20Configuration/src/Partition%20files/nvme1n1.txt)***
 :point_right: _/dev/nvme2n1_  | ***![nvme2n1.txt](https://github.com/samblake30/Linux/blob/main/RAID%20Configuration/src/Partition%20files/nvme2n1.txt)***
+
 
 
  * _Create 3 partitions in /dev/nvme1n1 device_
