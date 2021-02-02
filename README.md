@@ -51,12 +51,16 @@ _Auto-Scaling, LaunchConfig, ELB, ASG policy and Cloudwatch Alarm Creation_ :poi
    ```bash
    terraform apply -auto-approve
    ```
- 
+* _After the infrastructure is setup you can verify the same for instances being ready mostly our instance would take hardly ```50 sec``` to be ready after the cloud-init script runs to setup the webserver and secondary volume_
+
+<p align="centre">
+   <img width="950" height="350" src="https://github.com/samblake30/Terraform_ASG_AWS/blob/master/images/instances_bastion.PNG">
+</p>
    
 ## _Steps to perform:-_
  * _First check if the attached disks are available_
 <p align="centre">
-  <img width="950" height="150" src="https://github.com/samblake30/Linux/blob/main/RAID%20Configuration/src/img1.png">  
+  <img width="20" height="20" src="https://github.com/samblake30/Linux/blob/main/RAID%20Configuration/src/img1.png">  
 </p>
 
 ### ***Note:*** _Here we can create partition using both inbuilt utilities ![fdisk](https://img.shields.io/badge/%2Fdev%2Fsdc-for%20%20%2Fvar%2Flog-green) and ![parted](https://img.shields.io/badge/Utility-Parted-orange?style=plastic&logo=appveyor) but, for demo I have already taken backup of the partition tables created manually using the above mentioned utilities and here with the help of the ![sfdisk](https://img.shields.io/badge/Utility-sfdisk-brightgreen?style=plastic&logo=appveyor) we will restore the partition table with correct label and sizes._
