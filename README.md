@@ -36,8 +36,22 @@ _Auto-Scaling, LaunchConfig, ELB, ASG policy and Cloudwatch Alarm Creation_ :poi
    export AWS_ACCESS_KEY_ID = <YOUR ACCESS KEY>
    export AWS_SECRET_ACCESS_KEY = <YOUR SECRET KEY>
    export AWS_DEFAULT_REGION = <YOUR REGION>
-   ```
+   ``` 
 ***_NOTE_***: _I have still created a variable for region choices_
+
+* _Initliatize the terraform to install the required Providers Plugins and specific version_.
+   ```bash
+   terraform init
+   ```
+* _Perform terraform plan to know what resources are created_
+   ```bash
+   terraform plan
+   ```
+* _Apply the configuration to start the provisioning of the resources in AWS Environment_.
+   ```bash
+   terraform apply -auto-approve
+   ```
+ 
    
 ## _Steps to perform:-_
  * _First check if the attached disks are available_
