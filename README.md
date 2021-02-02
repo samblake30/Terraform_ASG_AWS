@@ -4,7 +4,8 @@
  * _VPC creation with Public and Private Subnet_.
  * _Public Subnet has Bastion Server and ELB_.
  * _Private Subnet has all the Backend Instances working in Auto-Scaling Group_.
- * _ASG uses latest AMI with secondary volume ![sdc](https://img.shields.io/badge/%2Fdev%2Fsdc-----%3E%20%2Fvar%2Flog-red)_
+ * _ASG uses latest AMI with secondary volume ![sdc](https://img.shields.io/badge/%2Fdev%2Fsdc-----%3E%20%2Fvar%2Flog-red) and Apache webServer_.
+ * _
 
 
 ## _Description:-_
