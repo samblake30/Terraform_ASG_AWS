@@ -51,12 +51,27 @@ _Auto-Scaling, LaunchConfig, ELB, ASG policy and Cloudwatch Alarm Creation_ :poi
    ```bash
    terraform apply -auto-approve
    ```
-* _After the infrastructure is setup you can verify the same for instances being ready mostly our instance would take hardly ```50 sec``` to be ready after the cloud-init script runs to setup the webserver and secondary volume_
+* _After the infrastructure is setup you can verify the same for instances being ready mostly our instance would take hardly ```50 sec``` to be ready after the cloud-init script runs to setup the webserver and secondary volume but we have put the Grace period of ```300 sec```_.
+  * ***_Backend Instances and Bastion Server_***
+  
+   <p align="centre">
+      <img width="950" height="200" src="https://github.com/samblake30/Terraform_ASG_AWS/blob/master/images/instances_bastion.PNG">
+   </p>
 
-<p align="centre">
-   <img width="950" height="350" src="https://github.com/samblake30/Terraform_ASG_AWS/blob/master/images/instances_bastion.PNG">
-</p>
-   
+  * ***_Autoscaling Group_***
+
+   <p align="centre">
+      <img width="950" height="200" src="https://github.com/samblake30/Terraform_ASG_AWS/blob/master/images/ASG.PNG">
+   </p>
+
+  * ***_Elastic Load Balancer_***
+  
+  * ***_Note_:-*** _Here we are using the ELB as our health check statistic to determine is application is facing any issue and terminte_ 
+  
+   <p align="centre">
+      <img width="550" height="200" src="https://github.com/samblake30/Terraform_ASG_AWS/blob/master/images/ELB.PNG">
+   </p>
+  
 ## _Steps to perform:-_
  * _First check if the attached disks are available_
 <p align="centre">
