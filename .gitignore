@@ -1,2 +1,6 @@
-*.terraform/*
-*.pem
+**/terraform.tfstate.*
+terraform.tfstate
+.terraform.tfstate.lock.info
+.terraform/*
+**/*.pem
+.terraform
