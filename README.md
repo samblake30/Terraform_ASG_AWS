@@ -68,7 +68,7 @@ _Dynamic Values for Variables_                       :point_right:  | ***![Terra
 
   * ***_Elastic Load Balancer_***
   
-  * ***_Note_:-*** _Here we are using the ELB as our health check statistic to determine is application is facing any issue and terminte_ 
+  * ***_Note_:-*** _Here we are using the ELB as our health check statistic to determine if the  application is facing any issue and terminate unhealthy backend instances_ 
   
    <p align="centre">
       <img width="950" height="400" src="https://github.com/samblake30/Terraform_ASG_AWS/blob/master/images/ELB.PNG">
